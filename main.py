@@ -21,7 +21,6 @@ pygame.display.set_caption("Snake")
 clock = pygame.time.Clock()
 
 # Movements
-direction = Direction.RIGHT
 turn_fields = []
 
 # Game
@@ -52,13 +51,13 @@ while gameOver == False:
             sys.exit()
 
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
+            if (event.key == pygame.K_UP) and (snake[0][2] != Direction.DOWN):
                 snake[0][2] = Direction.UP
-            elif event.key == pygame.K_DOWN:
+            elif (event.key == pygame.K_DOWN) and (snake[0][2] != Direction.UP):
                 snake[0][2] = Direction.DOWN
-            elif event.key == pygame.K_LEFT:
+            elif (event.key == pygame.K_LEFT) and (snake[0][2] != Direction.RIGHT):
                 snake[0][2] = Direction.LEFT
-            elif event.key == pygame.K_RIGHT:
+            elif (event.key == pygame.K_RIGHT) and (snake[0][2] != Direction.LEFT):
                 snake[0][2] = Direction.RIGHT
 
             if len(snake) > 1:
